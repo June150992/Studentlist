@@ -1,0 +1,124 @@
+body {
+  background-color: rgb(7, 5, 31);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 2em;
+  margin: 20px;
+  margin-top: 10vh;
+  text-align: center;
+}
+
+h1 {
+  animation-name: colortitle;
+  animation-timing-function: linear;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  font-family: "Henny Penny", cursive;
+  font-size: 3em;
+  text-align: center;
+  margin-top: -20px;
+  padding: 50px;
+}
+
+@keyframes colortitle {
+  0% {
+    color: rgb(241, 8, 8);
+  }
+  30% {
+    color: rgb(41, 204, 0);
+  }
+  50% {
+    color: rgb(5, 42, 252);
+  }
+  100% {
+    color: rgb(217, 231, 13);
+  }
+}
+
+h3 {
+  font-family: "Henny Penny", cursive;
+  font-size: 1.5em;
+  color: rgb(255, 255, 255);
+}
+h4 {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.2em;
+  color: rgb(252, 252, 252);
+}
+#popup img {
+  border-radius: 50%;
+  margin-top: 5vh;
+  margin-left: 10vw;
+  height: 50%;
+  width: 50%;
+}
+#popup h3 {
+  font-size: 2em;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+#popup h4 {
+  font-size: 1.5em;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+.content:hover {
+  cursor: pointer;
+}
+#popup {
+  top: 10vh;
+  left: 30vw;
+  width: 40vw;
+  height: 80vh;
+  position: fixed;
+  background-color: hsl(0, 0%, 100%);
+  display: none;
+}
+
+#luk {
+  position: fixed;
+  right: 30vw;
+}
+
+#luk button {
+  background-color: #ff5100;
+  margin-top: 20px;
+  border-radius: 50%;
+  height: 65px;
+  width: 65px;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+nav {
+  display: flex;
+  justify-content: center;
+}
+nav button {
+  cursor: pointer;
+  font-size: 0.8em;
+  font-family: "Ubuntu", sans-serif;
+  padding: 15px 10px;
+  background-color: #d3c9c9;
+  margin: 10px;
+  margin-top: -15px;
+  height: 70px;
+  width: 110px;
+}
+.content img {
+  border-radius: 50%;
+  width: 40%;
+}
+.buttonwrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.buttonwrapper img {
+  margin-left: 40px;
+  margin-top: -10vh;
+  margin-right: 40px;
+  width: 200px;
+}

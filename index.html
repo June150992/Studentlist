@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Henny+Penny&display=swap"
+      rel="stylesheet"
+    />
+    <title>Student List 1</title>
+  </head>
+  <body>
+
+    <h1>All Students</h1>
+<div class="buttonwrapper">
+  <img src="gryffindor.PNG">
+  <img src="slytherin.PNG">
+
+    <nav>
+      <button class="filter valgt" data-hold="all">All Houses</button>
+      <button class="filter" data-hold="Gryffindor" style="color: red">Gryffindor</button>
+      <button class="filter" data-hold="Slytherin" style="color: green">Slytherin</button>
+      <button class="filter" data-hold="Ravenclaw" style="color: blue">Ravenclaw</button>
+      <button class="filter" data-hold="Hufflepuff" style="color: yellow;">Hufflepuff</button>
+    </nav>
+
+    <img src="ravenclaw.PNG">
+    <img src="hufflepuff.PNG">
+  </div>
+
+    <section>
+      <div class="content">
+          <div id="students"></div>
+            <div class="grid"></div>
+          </div>
+        </div>
+      </section>
+  
+     
+
+      <div id="popup">
+      
+        <div id="luk">
+          <button>X</button>
+        </div>
+
+  
+        <div id="indhold">
+        </div>
+      </div>
+
+   <section id="liste"></section>
+     
+  </body>
+<script src="script.js"></script>
+</html>
