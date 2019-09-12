@@ -10,6 +10,28 @@ async function getStudents() {
     section = await jsonData.json();
   }
   insertStudents();
+  filterHouses();
+}
+
+function filterHouses(houses) {
+  const clone = document
+    .querySelector("template#houses")
+    .content.cloneNode(true);
+
+  const parts = houses.fullname.split(" ");
+  const allHouses = parts[0];
+  const gryffindor = parts[2];
+  const hufflepuff = parts[3];
+  const ravenclaw = parts[4];
+  const slytherin = parts[5];
+
+  clone.querySelector("[data-field-allHouses]").textContent = allHouses;
+  clone.querySelector("[data-field-gryffindor]").textContent = gryffindor;
+  clone.querySelector("[data-field-hufflepuff]").textContent = hufflepuff;
+  clone.querySelector("[data-field-ravenclaw]").textContent = ravenclaw;
+  clone.querySelector("[data-field-slytherin]").textContent = slytherin;
+
+  document.querySelector("#list tbody").appendChild(clone);
 }
 
 function insertStudents() {
@@ -48,18 +70,4 @@ function insertStudents() {
       }
     }
   });
-
-  document.querySelectorAll(".filter").forEach(but => {
-    but.addEventListener("click", filtrering);
-  });
-
-  function filtrering() {
-    document.querySelectorAll(".filter").forEach(but => {
-      but.classList.remove("valgt");
-    });
-    this.classList.add("valgt");
-    document.querySelector("h1").textContent = this.textContent;
-    filter = this.getAttribute("data-hold");
-    getStudents();
-  }
 }

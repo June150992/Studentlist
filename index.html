@@ -14,21 +14,39 @@
   </head>
   <body>
 
-    <h1>All Students</h1>
+<h1>All Students</h1>
+
+<table id="list">
+  <thead>
+    <tr>
+      <th>All Houses</th>
+      <th>Gryffindor</th>
+      <th>Hufflepuff</th>
+      <th>Ravenclaw</th>
+      <th>Slytherin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- House template will be placed here! -->
+  </tbody>
+</table>
+
 <div class="buttonwrapper">
-  <img src="gryffindor.PNG">
-  <img src="slytherin.PNG">
+  <!-- <img src="gryffindor.PNG">
+  <img src="slytherin.PNG"> -->
 
-    <nav>
-      <button class="filter valgt" data-hold="all">All Houses</button>
-      <button class="filter" data-hold="Gryffindor" style="color: red">Gryffindor</button>
-      <button class="filter" data-hold="Slytherin" style="color: green">Slytherin</button>
-      <button class="filter" data-hold="Ravenclaw" style="color: blue">Ravenclaw</button>
-      <button class="filter" data-hold="Hufflepuff" style="color: yellow;">Hufflepuff</button>
-    </nav>
+    <template id="houses">
+      <tr>
+      <td data-field="allHouses">All Houses</td>
+        <td data-field="gryffindor">Gryffindor</td>
+          <td data-field="hufflepuff">Hufflepuff</td>
+            <td data-field="ravenclaw">Ravenclaw</td>
+            <td data-field="slytherin">Slytherin</button>
+            </tr>
+    </template>
 
-    <img src="ravenclaw.PNG">
-    <img src="hufflepuff.PNG">
+    <!-- <img src="ravenclaw.PNG">
+    <img src="hufflepuff.PNG"> -->
   </div>
 
     <section>
@@ -51,8 +69,6 @@
         <div id="indhold">
         </div>
       </div>
-
-   <section id="liste"></section>
      
   </body>
 <script src="script.js"></script>
