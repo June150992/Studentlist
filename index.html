@@ -15,35 +15,31 @@
   <body>
 
 <h1>All Students</h1>
-
-<table id="list">
-  <thead>
-    <tr>
-      <th>All Houses</th>
-      <th>Gryffindor</th>
-      <th>Hufflepuff</th>
-      <th>Ravenclaw</th>
-      <th>Slytherin</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- House template will be placed here! -->
-  </tbody>
-</table>
+ 
 
 <div class="buttonwrapper">
   <!-- <img src="gryffindor.PNG">
   <img src="slytherin.PNG"> -->
 
-    <template id="houses">
-      <tr>
-      <td data-field="allHouses">All Houses</td>
-        <td data-field="gryffindor">Gryffindor</td>
-          <td data-field="hufflepuff">Hufflepuff</td>
-            <td data-field="ravenclaw">Ravenclaw</td>
-            <td data-field="slytherin">Slytherin</button>
-            </tr>
-    </template>
+  <nav>
+    <button class="filter button_chosen" data-type="all">All Students</button>
+    
+ 
+   
+    <button class="sort" data-type="firstname">Firstname</button>
+    <button class="sort" data-type="lastname">Lastname</button>
+    <div class="dropdown">
+      <button class="sort" data-type="house">House</button>
+      <div class="dropdown-content">
+        
+        <button class="filter" data-type="Hufflepuff">Hufflepuff</button>
+        <button class="filter" data-type="Gryffindor">Gryffindor</button>
+        <button class="filter" data-type="Slytherin">Slytherin</button>
+        <button class="filter" data-type="Ravenclaw">Ravenclaw</button>
+      </div>
+    </div>
+   
+  </nav>
 
     <!-- <img src="ravenclaw.PNG">
     <img src="hufflepuff.PNG"> -->
@@ -56,17 +52,18 @@
           </div>
         </div>
       </section>
-  
+
+      <ul id="list"></ul>
      
 
       <div id="popup">
       
-        <div id="luk">
+        <div id="close">
           <button>X</button>
         </div>
 
   
-        <div id="indhold">
+        <div id="popup_content">
         </div>
       </div>
      

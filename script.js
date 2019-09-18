@@ -1,73 +1,108 @@
-let allHouses = [];
+let firstname;
+let lastname;
+let sort = "house";
 let filter = "all";
+
+
+const destStudentList = document.querySelector("#list");
+const filterButtons = document.querySelectorAll(".filter");
+const sortButtons = document.querySelectorAll(".sort");
+
 
 document.addEventListener("DOMContentLoaded", getStudents);
 
 async function getStudents() {
-  if (filter == "all" || filter == section.house) {
-    let pagesUrl = "http://petlatkea.dk/2019/students1991.json";
+    let pagesUrl = "http://petlatkea.dk/2019/hogwartsdata/students.json ";
     let jsonData = await fetch(pagesUrl);
-    section = await jsonData.json();
-  }
-  insertStudents();
-  filterHouses();
+    students = await jsonData.json();
+
+  filterStudents();
 }
 
-function filterHouses(houses) {
-  const clone = document
-    .querySelector("template#houses")
-    .content.cloneNode(true);
+function filterStudents() {
+  students.forEach(student => {
+    let nameArr = `${student.fullname}`.split(" ");
+    student.firstname = nameArr[0];
+    student.lastname = nameArr[1];
+    
+  });  
+  
+  filterButtons.forEach(button => {
+    button.addEventListener("click", function(){
+      filter = this.getAttribute("data-type");
+      button.classList.remove("button_chosen");
+      this.classList.add("button_chosen");
+    });
+  });
+};
 
-  const parts = houses.fullname.split(" ");
-  const allHouses = parts[0];
-  const gryffindor = parts[2];
-  const hufflepuff = parts[3];
-  const ravenclaw = parts[4];
-  const slytherin = parts[5];
+  sortButtons.forEach(button => {
+    button.addEventListener("click", function(){
+    sort = this.getAttribute("data-type");
+    displayFilteredStudents();
+    document.querySelectorAll("button").forEach(button =>{
+      button.classList.remove("button_chosen");
+      this.classList.add("button_chosen");
+    })
+    })
+  });
 
-  clone.querySelector("[data-field-allHouses]").textContent = allHouses;
-  clone.querySelector("[data-field-gryffindor]").textContent = gryffindor;
-  clone.querySelector("[data-field-hufflepuff]").textContent = hufflepuff;
-  clone.querySelector("[data-field-ravenclaw]").textContent = ravenclaw;
-  clone.querySelector("[data-field-slytherin]").textContent = slytherin;
+function displayFilteredStudents() {
+  filteredStudents = students.filter(
+    student => filter === "all" || student.house === filter
+  );
+  
+  filteredStudents.sort(function(a, b) {
+    let nameA = a[sort].toUpperCase();
+    let nameB = b[sort].toUpperCase(); 
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  });
 
-  document.querySelector("#list tbody").appendChild(clone);
+  displayStudentList();
 }
 
-function insertStudents() {
-  section.forEach(section => {
+function displayStudentList() {
+  destStudentList.innerHTML = "";
+
+  filteredStudents.forEach(student => {
     let template = `
-            <div class="content">
-                            <img src="placeholder.png">
-                            <h3>${section.fullname}</h3>
-                            <h4>${section.house}</h4>
-                         
-                        </div>
-                    </div>
-`;
-    // Åben pop-up
+                <li class="student" style="background-color: var(--${student.house}-color)">
+                        <h3 class="name">${student.fullname}</h2>
+                        <h4 class="house">${student.house}</h4>
+                        <img src="images/abbott_h.png"></img>
+                </li>
+                `;
 
-    destStudents = document.querySelector(".grid");
-    destStudents.insertAdjacentHTML("beforeend", template);
+    destStudentList.insertAdjacentHTML("beforeend", template);
 
-    destStudents.lastElementChild.addEventListener("click", visSingle);
+     // Åben pop-up
 
-    // Indholdet i pop-up vinduet
+    destStudentList.lastElementChild.addEventListener("click", displayPopup);
 
-    function visSingle() {
-      document.querySelector("#indhold").innerHTML = `<article class="content">
-    <h3>${section.fullname}</h3>
-    <h4>${section.house}</h4>
-    <img src="placeholder.png">
+
+  
+// Indholdet i pop-up vinduet
+
+function displayPopup() {
+document.querySelector("#popup_content").innerHTML = `<article class="content">
+    <h3>${student.fullname}</h3>
+    <h4>${student.house}</h4>
+    <img src="images/abbott_h.png">
   </article>
   </article>`;
 
       document.querySelector("#popup").style.display = "block";
-      document.querySelector("#popup #luk").addEventListener("click", close);
+      document.querySelector("#popup #close").addEventListener("click", close);
 
       function close() {
         document.querySelector("#popup").style.display = "none";
       }
     }
-  });
-}
+  ;
+})};
