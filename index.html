@@ -10,24 +10,25 @@
       href="https://fonts.googleapis.com/css?family=Henny+Penny&display=swap"
       rel="stylesheet"
     />
-    <title>Student List 1</title>
+    <title>Hacked Student list</title>
   </head>
   <body>
 
-<h1>All Students</h1>
+<h1>Hogwarts School of Witchcraft and Wizadry</h1>
+  <h2>Student List 1991</h2>
  
 
 <div class="buttonwrapper">
-  <!-- <img src="gryffindor.PNG">
-  <img src="slytherin.PNG"> -->
+
+    <audio id="audio" src="/audio.mp3"></audio>
+    <a onClick="document.getElementById('audio').play()">Music ON</a>
 
   <nav>
     <button class="filter button_chosen" data-type="all">All Students</button>
-    
- 
-   
     <button class="sort" data-type="firstname">Firstname</button>
     <button class="sort" data-type="lastname">Lastname</button>
+    
+    
     <div class="dropdown">
       <button class="sort" data-type="house">House</button>
       <div class="dropdown-content">
@@ -40,9 +41,6 @@
     </div>
    
   </nav>
-
-    <!-- <img src="ravenclaw.PNG">
-    <img src="hufflepuff.PNG"> -->
   </div>
 
     <section>
@@ -54,7 +52,16 @@
       </section>
 
       <ul id="list"></ul>
-     
+      
+
+      <ul id="hackedlist">
+        <h3>Julie Levin Petersen</h3>
+        <h4>Gryffindor</h4>
+        <img src="images/hackedStudent.png">
+        <h4>Pureblood</h4>
+        <h4>InqMember: Yes</h4>
+        <h4>Is prefect: Yes</h4>
+      </ul>
 
       <div id="popup">
       
@@ -64,7 +71,6 @@
 
   
         <div id="popup_content">
-        </div>
       </div>
      
   </body>
